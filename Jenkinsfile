@@ -18,6 +18,7 @@ pipeline {
         }
         stage('Push Image') {
             steps {
+			    sh 'docker tag test 10.0.0.4:8081/test:latest'
 			    sh 'docker push 10.0.0.4:8081/test:latest'
             }
         }
