@@ -21,6 +21,11 @@ dependencies {
 	}
 }
 
+jar {
+    archivesBaseName='test'
+    project.version=''
+}
+
 test {
 	useJUnitPlatform()
 }
