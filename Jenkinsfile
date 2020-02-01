@@ -6,12 +6,12 @@ pipeline {
                 sh './gradlew clean build -x test'
             }
         }
-		stage('Unit Test') {
-			steps {
-				sh './gradlew test'
-			}
-		}
-	    stage('Build Image') {
+        stage('Unit Test') {
+            steps {
+                sh './gradlew test'
+            }
+        }
+        stage('Build Image') {
             steps {
                 sh 'docker build -t test .'
             }
