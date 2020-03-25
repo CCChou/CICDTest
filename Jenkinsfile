@@ -26,11 +26,7 @@ pipeline {
         }
 		stage('Deploy') {
 			steps {
-				ansiblePlaybook(
-					credentialsId: 'b449f7c3-f848-467c-a15e-a194a4bde373',
-					inventory: 'ansible/inventory.yml',
-					playbook: 'ansible/deploy.yml'
-				)
+                sh 'ansible-playbook -i hosts.ini ansible/deploy.yml'
 			}
 		}
     }
