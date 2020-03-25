@@ -24,5 +24,12 @@ pipeline {
                 sh 'docker logout 10.0.0.4:8082'
             }
         }
+		stage('Deploy') {
+			ansiblePlaybook(
+				credentialsId: 'b449f7c3-f848-467c-a15e-a194a4bde373',
+				inventory: 'ansible/inventory.yml',
+				playbook: 'ansible/deploy.yml'
+			)
+		}
     }
 }

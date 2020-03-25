@@ -1,0 +1,4 @@
+node ansible_host=10.0.0.4 ansible_connection=ssh ansible_user=vagrant
+
+[servers]
+node

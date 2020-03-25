@@ -1,0 +1,22 @@
+---
+- name: Docker Deploy Test
+  hosts: servers
+  tasks:
+    - name: login
+      shell: docker login -u dennischou -p 1qaz@WSX 10.0.0.4:8082
+
+    - name: pull image
+      shell: docker pull 10.0.0.4:8082/test:latest
+
+    - name: logout
+      shell: docker logout 10.0.0.4:8082
+
+    - name: stop old container
+      shell: docker stop test || true
+
+    - name: remove old container
+      shell: docker rm test || true
+
+    - name: start new container
+      shell: docker run -d --name test -p 18080:8080 10.0.0.4:8082/test:latest
+...
